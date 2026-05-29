@@ -25,7 +25,7 @@ public class SubstractTest {
 
   @Test
   public void testSubstractionBetweenAAndB() throws Exception {
- 
+
     when(arithService.arrith_substraction(10L, 4L)).thenReturn(6L);
 
     mockMvc
