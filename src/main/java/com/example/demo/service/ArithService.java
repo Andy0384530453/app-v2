@@ -24,17 +24,17 @@ public class ArithService {
     return a - b;
   }
 
-  public double arrith_division(int a, int b) {
+  public double arrith_division(double a, double b) {
 
-    int div = 0;
+
     if (a < 0 || b < 0) {
       throw new IllegalArgumentException("number must be positive");
     }
     if (b == 0) {
       return NaN;
     }
-    div = (a / b);
-    return div;
+
+    return a / b;
   }
 
   public long arrith_multiplication(long a, long b) {

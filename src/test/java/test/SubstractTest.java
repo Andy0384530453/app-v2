@@ -25,15 +25,31 @@ public class SubstractTest {
 
   @Test
   public void testSubstractionBetweenAAndB() throws Exception {
-    when(arithService.arrith_substraction(10, 4)).thenReturn(6L);
+ 
+    when(arithService.arrith_substraction(10L, 4L)).thenReturn(6L);
 
     mockMvc
-        .perform(
-            get("/arith/substract")
-                .param("a", "10")
-                .param("b", "4")
-                .accept(MediaType.APPLICATION_JSON))
-        .andExpect(status().isOk())
-        .andExpect(content().string("6"));
+            .perform(
+                    get("/arith/substract")
+                            .param("a", "10")
+                            .param("b", "4")
+                            .accept(MediaType.APPLICATION_JSON))
+            .andExpect(status().isOk())
+            .andExpect(content().string("6"));
+  }
+
+  @Test
+  public void testSubstractionBetweenAAndBwithNegativeNumber() throws Exception {
+
+    when(arithService.arrith_substraction(10L, -4L)).thenReturn(14L);
+
+    mockMvc
+            .perform(
+                    get("/arith/substract")
+                            .param("a", "10")
+                            .param("b", "-4")
+                            .accept(MediaType.APPLICATION_JSON))
+            .andExpect(status().isOk())
+            .andExpect(content().string("14"));
   }
 }

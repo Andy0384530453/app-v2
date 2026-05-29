@@ -25,7 +25,7 @@ public class Arith {
   }
 
   @GetMapping("/division")
-  public double divion_between_a_and_b(int a, int b) {
+  public double divion_between_a_and_b(double a, double b) {
     return arithService.arrith_division(a, b);
   }
 
