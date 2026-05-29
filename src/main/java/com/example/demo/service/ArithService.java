@@ -26,7 +26,6 @@ public class ArithService {
 
   public double arrith_division(double a, double b) {
 
-
     if (a < 0 || b < 0) {
       throw new IllegalArgumentException("number must be positive");
     }

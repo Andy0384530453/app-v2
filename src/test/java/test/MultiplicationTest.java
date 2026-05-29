@@ -29,12 +29,12 @@ public class MultiplicationTest {
     when(arithService.arrith_multiplication(4L, 3L)).thenReturn(12L);
 
     mockMvc
-            .perform(
-                    get("/arith/multiplication")
-                            .param("a", "4")
-                            .param("b", "3")
-                            .accept(MediaType.APPLICATION_JSON))
-            .andExpect(status().isOk())
-            .andExpect(content().string("12"));
+        .perform(
+            get("/arith/multiplication")
+                .param("a", "4")
+                .param("b", "3")
+                .accept(MediaType.APPLICATION_JSON))
+        .andExpect(status().isOk())
+        .andExpect(content().string("12"));
   }
 }

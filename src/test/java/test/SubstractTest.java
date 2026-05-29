@@ -29,13 +29,13 @@ public class SubstractTest {
     when(arithService.arrith_substraction(10L, 4L)).thenReturn(6L);
 
     mockMvc
-            .perform(
-                    get("/arith/substract")
-                            .param("a", "10")
-                            .param("b", "4")
-                            .accept(MediaType.APPLICATION_JSON))
-            .andExpect(status().isOk())
-            .andExpect(content().string("6"));
+        .perform(
+            get("/arith/substract")
+                .param("a", "10")
+                .param("b", "4")
+                .accept(MediaType.APPLICATION_JSON))
+        .andExpect(status().isOk())
+        .andExpect(content().string("6"));
   }
 
   @Test
@@ -44,12 +44,12 @@ public class SubstractTest {
     when(arithService.arrith_substraction(10L, -4L)).thenReturn(14L);
 
     mockMvc
-            .perform(
-                    get("/arith/substract")
-                            .param("a", "10")
-                            .param("b", "-4")
-                            .accept(MediaType.APPLICATION_JSON))
-            .andExpect(status().isOk())
-            .andExpect(content().string("14"));
+        .perform(
+            get("/arith/substract")
+                .param("a", "10")
+                .param("b", "-4")
+                .accept(MediaType.APPLICATION_JSON))
+        .andExpect(status().isOk())
+        .andExpect(content().string("14"));
   }
 }

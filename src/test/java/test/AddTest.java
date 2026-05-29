@@ -19,52 +19,49 @@ import org.springframework.test.web.servlet.MockMvc;
 @ContextConfiguration(classes = {Arith.class, ArithService.class})
 public class AddTest {
 
-    @Autowired private MockMvc mockMvc;
+  @Autowired private MockMvc mockMvc;
 
-    @MockBean private ArithService arithService;
+  @MockBean private ArithService arithService;
 
-    @Test
-    public void testSumBetweenAAndB() throws Exception {
+  @Test
+  public void testSumBetweenAAndB() throws Exception {
 
-        when(arithService.arith_add(5L, 5L)).thenReturn(10L);
+    when(arithService.arith_add(5L, 5L)).thenReturn(10L);
 
-        mockMvc
-                .perform(
-                        get("/arith/add")
-                                .param("a", "5")
-                                .param("b", "5")
-                                .accept(MediaType.APPLICATION_JSON))
-                .andExpect(status().isOk())
-                .andExpect(content().string("10"));
-    }
+    mockMvc
+        .perform(
+            get("/arith/add").param("a", "5").param("b", "5").accept(MediaType.APPLICATION_JSON))
+        .andExpect(status().isOk())
+        .andExpect(content().string("10"));
+  }
 
-    @Test
-    public void testSumBetweenAAndBWithMediumInt() throws Exception {
+  @Test
+  public void testSumBetweenAAndBWithMediumInt() throws Exception {
 
-        when(arithService.arith_add(75000L, 25000L)).thenReturn(100000L);
+    when(arithService.arith_add(75000L, 25000L)).thenReturn(100000L);
 
-        mockMvc
-                .perform(
-                        get("/arith/add")
-                                .param("a", "75000")
-                                .param("b", "25000")
-                                .accept(MediaType.APPLICATION_JSON))
-                .andExpect(status().isOk())
-                .andExpect(content().string("100000"));
-    }
+    mockMvc
+        .perform(
+            get("/arith/add")
+                .param("a", "75000")
+                .param("b", "25000")
+                .accept(MediaType.APPLICATION_JSON))
+        .andExpect(status().isOk())
+        .andExpect(content().string("100000"));
+  }
 
-    @Test
-    public void testSumBetweenAAndBWithBigInt() throws Exception {
+  @Test
+  public void testSumBetweenAAndBWithBigInt() throws Exception {
 
-        when(arithService.arith_add(50000000000L, 50000000000L)).thenReturn(100000000000L);
+    when(arithService.arith_add(50000000000L, 50000000000L)).thenReturn(100000000000L);
 
-        mockMvc
-                .perform(
-                        get("/arith/add")
-                                .param("a", "50000000000")
-                                .param("b", "50000000000")
-                                .accept(MediaType.APPLICATION_JSON))
-                .andExpect(status().isOk())
-                .andExpect(content().string("100000000000"));
-    }
+    mockMvc
+        .perform(
+            get("/arith/add")
+                .param("a", "50000000000")
+                .param("b", "50000000000")
+                .accept(MediaType.APPLICATION_JSON))
+        .andExpect(status().isOk())
+        .andExpect(content().string("100000000000"));
+  }
 }

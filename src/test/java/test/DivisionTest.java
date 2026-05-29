@@ -41,12 +41,12 @@ public class DivisionTest {
     when(arithService.arrith_division(10.5, 2.0)).thenReturn(5.25);
 
     mockMvc
-            .perform(
-                    get("/arith/division")
-                            .param("a", "10.5")
-                            .param("b", "2")
-                            .accept(MediaType.APPLICATION_JSON))
-            .andExpect(status().isOk())
-            .andExpect(content().string("5.25"));
+        .perform(
+            get("/arith/division")
+                .param("a", "10.5")
+                .param("b", "2")
+                .accept(MediaType.APPLICATION_JSON))
+        .andExpect(status().isOk())
+        .andExpect(content().string("5.25"));
   }
 }
